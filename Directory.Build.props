@@ -1,0 +1,32 @@
+<Project>
+	<PropertyGroup>
+		<TargetFramework>net9.0</TargetFramework>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>enable</Nullable>
+
+		<UseArtifactsOutput>true</UseArtifactsOutput>
+		<ArtifactsPath>$(MSBuildThisFileDirectory)artifacts</ArtifactsPath>
+
+		<Authors>Bieber</Authors>
+		<RootNamespace>$(Authors).$(MSBuildProjectName)</RootNamespace>
+
+		<NeutralLanguage>en</NeutralLanguage>
+		<SatelliteResourceLanguages>en;de</SatelliteResourceLanguages>
+
+		<AnalysisLevel>latest</AnalysisLevel>
+		<AnalysisMode>All</AnalysisMode>
+		<TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+		<CodeAnalysisTreatWarningsAsErrors>true</CodeAnalysisTreatWarningsAsErrors>
+		<EnforceCodeStyleInBuild>true</EnforceCodeStyleInBuild>
+		
+	</PropertyGroup>
+	
+
+	<ItemGroup Condition="'$(MSBuildProjectExtension)' != '.dcproj'">
+		<PackageReference Include="SonarAnalyzer.CSharp">
+			<PrivateAssets>all</PrivateAssets>
+			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+		</PackageReference>
+	</ItemGroup>
+
+</Project>
